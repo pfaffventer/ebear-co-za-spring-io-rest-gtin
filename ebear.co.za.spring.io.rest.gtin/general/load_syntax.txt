@@ -1,0 +1,275 @@
+package za.co.tru.cape.trade.item.service;
+
+import org.springframework.boot.CommandLineRunner;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.boot.context.embedded.FilterRegistrationBean;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.cors.CorsConfiguration;
+import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
+
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Commodity;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Variety;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Grade;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Pack;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Mark;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Inventory;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_Gtin;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_GtinMarket;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_TargetMarket;
+import za.co.tru.cape.trade.item.service.repository.CrudRepository_ApplicationProperty;
+
+
+/*-- load legacy --*/
+//import java.util.List;
+//import za.co.tru.cape.trade.item.service.model.base.LogRecord;
+//import za.co.tru.cape.trade.item.service.model.ApplicationProperty;
+//import za.co.tru.cape.trade.item.service.model.Commodity;
+//import za.co.tru.cape.trade.item.service.model.Variety;
+//import za.co.tru.cape.trade.item.service.model.Grade;
+//import za.co.tru.cape.trade.item.service.model.Pack;
+//import za.co.tru.cape.trade.item.service.model.Mark;
+//import za.co.tru.cape.trade.item.service.model.Inventory;
+//import za.co.tru.cape.trade.item.service.model.TargetMarket;
+//import za.co.tru.cape.trade.item.service.model.Gtin;
+//import za.co.tru.cape.trade.item.service.model.GtinMarket;
+
+@SpringBootApplication
+public class Application {
+
+//	private static final String user = System.getProperty("user.name");
+
+//	private static final String user = "system";
+
+	public static void main(String[] args) {
+		SpringApplication.run(Application.class, args);
+	}
+
+	@Bean
+	public FilterRegistrationBean corsFilter() {
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		CorsConfiguration config = new CorsConfiguration();
+		config.setAllowCredentials(true);
+		config.addAllowedOrigin("*");
+		config.addAllowedHeader("*");
+		config.addAllowedMethod("OPTIONS");
+		config.addAllowedMethod("HEAD");
+		config.addAllowedMethod("GET");
+		config.addAllowedMethod("PUT");
+		config.addAllowedMethod("POST");
+		config.addAllowedMethod("DELETE");
+		config.addAllowedMethod("PATCH");
+		source.registerCorsConfiguration("/**", config);
+		final FilterRegistrationBean bean = new FilterRegistrationBean(new CorsFilter(source));
+		bean.setOrder(0);
+		return bean;
+	}
+
+	@Bean
+	public CommandLineRunner loadProperty (CrudRepository_ApplicationProperty applicationPropertyRepo) {
+
+		return (args) -> {
+
+			/*-- ApplicationProperty --*/
+//			applicationPropertyRepo.save(new ApplicationProperty(new LogRecord(user),"SYSTEM_NAME","Trade Item Master"));
+//			applicationPropertyRepo.save(new ApplicationProperty(new LogRecord(user),"HOME_PAGE_TITLE","Trade Item Registration"));
+
+		};
+
+	}
+
+	@Bean
+	public CommandLineRunner loadLegacy(CrudRepository_Commodity commodityRepo
+			,CrudRepository_Variety varietyRepo
+			,CrudRepository_Grade gradeRepo
+			,CrudRepository_Pack packRepo
+			,CrudRepository_Mark markRepo
+			,CrudRepository_Inventory inventoryRepo
+			,CrudRepository_TargetMarket targetMarketRepo
+			,CrudRepository_Gtin gtinRepo
+			,CrudRepository_GtinMarket gtinMarketRepo) {
+
+		return (args) -> {
+
+
+			/*-- commodity --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/commodity.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));;
+//			String line;
+//			while ((line=r.readLine())!=null) {
+//				String[] lineData = line.split(",");
+//				commodityRepo.save(new Commodity(new LogRecord(user),lineData[0], lineData[1]));
+//			}
+//			r.close();
+
+			/*-- variety --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/variety.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io. FileReader(f));;
+//			String line;
+//			while ((line=r.readLine())!=null) {
+//
+//				String[] lineData = line.split(",");
+//				List<Commodity> c = commodityRepo.findByCommodityCode(lineData[0]);
+//				varietyRepo.save(new Variety(new LogRecord(user),lineData[1], c.get(0), lineData[2]));
+//
+//			}
+//			r.close();
+
+			/*-- grade --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/grade.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));;
+//			String line;
+//			while ((line=r.readLine())!=null) {
+//				String[] lineData = line.split(",");
+//				gradeRepo.save(new Grade(new LogRecord(user),lineData[0],lineData[1]));
+//
+//			}
+//			r.close();
+
+
+			/*-- pack --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/pack.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io. FileReader(f));
+//			String line;
+//
+//			while ((line=r.readLine())!=null) {
+//
+//				String[] lineData = line.split(",");
+//				List<Commodity> c = commodityRepo.findByCommodityCode(lineData[1]);
+//
+//				Pack p = new Pack(new LogRecord(user),
+//						lineData[0],
+//						lineData[11], 
+//						lineData[1],
+//						lineData[2],
+//						lineData[3]
+//								,Float.valueOf(lineData[4])
+//								,Float.valueOf(lineData[5])
+//								,Float.valueOf(lineData[6])
+//								,Float.valueOf(lineData[7])
+//								,Float.valueOf(lineData[8])
+//								,Float.valueOf(lineData[9])
+//								,Float.valueOf(lineData[10])
+//								,c.get(0));
+//
+//				packRepo.save(p);
+//
+//			}
+//			r.close();
+
+
+			/*-- mark --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/mark.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));
+//			String line;
+//
+//			while ((line=r.readLine())!=null) {
+//				String[] lineData = line.split(",");
+//				markRepo.save(new Mark(new LogRecord(user), lineData[0], lineData[1]));
+//
+//			}
+//			r.close();
+
+
+			/*-- inventory --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/inventory.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));;
+//			String line;
+//			
+//			while ((line=r.readLine())!=null) {
+//				String[] lineData = line.split(",");
+//				inventoryRepo.save(new Inventory(new LogRecord(user),lineData[0], lineData[1]));
+//			}
+//			r.close();
+
+			/*-- size table --*/
+
+			//TODO
+
+			/*-- target market --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/target_market.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));;
+//			String line;
+//			
+//			while ((line=r.readLine())!=null) {
+//				String[] lineData = line.split(",");
+//				targetMarketRepo.save(new TargetMarket(new LogRecord(user),lineData[0], lineData[1]));
+//
+//			}
+//			r.close();
+
+
+			/*-- gtin --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/gtin.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io. FileReader(f));;
+//			String line;
+//			while ((line=r.readLine())!=null) {
+//
+//				String[] lineData = line.split(",");
+//
+//				Gtin g = new Gtin(new LogRecord(user),
+//						lineData[0].trim(),
+//						lineData[1].trim(),
+//						lineData[2].trim(),
+//						lineData[3].trim(),
+//						lineData[4].trim(),
+//						lineData[5].trim(),
+//						lineData[6].trim(),
+//						lineData[7].trim());
+//
+//				gtinRepo.save(g);
+//
+//			}
+//			r.close();
+
+			/*-- gtin market load --*/
+
+//			java.io.File f = new java.io.File("D:/stack/spring/workspace/za.co.tru-cape.trade.item.service/general/load-legacy/gtin_market.ld");
+//			java.io.BufferedReader r = new java.io.BufferedReader(new java.io.FileReader(f));;
+//			String line;
+//			while ((line=r.readLine())!=null) {
+//
+//				String[] lineData = line.split(",");
+//				
+//				if(lineData[0].trim().length()==0) {
+//					continue;
+//				}
+//				
+//				if(lineData[1].trim().length()==0) {
+//					continue;
+//				}
+//				
+//				List<Gtin> l = gtinRepo.findByGtinCode(lineData[0].trim());
+//				List<TargetMarket> tm = targetMarketRepo.findByTargetMarketCode(lineData[1].trim());
+//				
+//				if(l.size()==0) {
+//					continue;	
+//				}
+//				
+//				if(tm.size()==0) {
+//					continue;
+//				}
+//				
+//				LogRecord lr = new LogRecord(user);
+//				
+//				GtinMarket gm = new GtinMarket(lr,lineData[0].trim(),lineData[1].trim(),l.get(0),tm.get(0));
+//				gtinMarketRepo.save(gm);
+//
+//			}
+//			r.close();
+
+		};
+
+	}
+
+}

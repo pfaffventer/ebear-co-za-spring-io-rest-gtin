@@ -1,0 +1,2 @@
+mysqldump -u root -p ebear_rest_gtin > ebear_rest_gtin.sql
+mysql -u root -p ebear_rest_gtin < ebear_rest_gtin.sql
