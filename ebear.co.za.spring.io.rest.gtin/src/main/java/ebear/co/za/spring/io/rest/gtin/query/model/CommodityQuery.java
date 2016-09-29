@@ -9,6 +9,7 @@ public class CommodityQuery {
 	private String commodityDescription;
 	private Timestamp logTime;
 	private String logUser;
+	
 	public CommodityQuery() {
 		super();
 		// TODO Auto-generated constructor stub
